@@ -1,0 +1,250 @@
+:root {
+  --primary-color: #e50914;
+  --primary-hover-color: #f40612;
+  --sec-color: #212529;
+  --color-white: #ffffff;
+}
+
+body {
+  background-color: #ededed;
+}
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+body {
+  position: relative;
+  /* color: var(--color-white); */
+  min-height: 100vh;
+  height: auto;
+}
+body::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  filter: blur(3px);
+  z-index: -1;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("../images/bgnetflix.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: var(--color-white);
+}
+
+.logo {
+  width: 30%;
+  display: inline-block;
+}
+
+.showModelbtn {
+  background-color: var(--primary-color);
+  color: var(--color-white);
+  padding: 5px;
+  border-radius: 5px;
+}
+.showModelbtn:hover {
+  background-color: rgb(153, 22, 29);
+  color: var(--color-white);
+  transform: scale(0.98);
+}
+
+.log img {
+  width: 100%;
+  font-size: 20px;
+}
+.nfx-primary-btn,
+.nfx-addMovie-btn,
+.nfx-close-btn {
+  color: var(--color-white);
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.nfx-primary-btn {
+  background-color: var(--primary-color);
+}
+
+.nfx-addMovie-btn {
+  background-color: var(--sec-color);
+}
+.nfx-updateMovie-btn {
+  background-color: var(--sec-color);
+  color: var(--color-white);
+}
+.card-header i {
+  color: var(--sec-color);
+  cursor: pointer;
+}
+.nfx-close-btn {
+  background-color: var(--primary-color);
+}
+.nfx-primary-btn:is(:hover, :focus, :active) {
+  background-color: var(--primary-color);
+  color: var(--color-white) !important;
+  transform: scale(1.05);
+}
+.nfx-addMovie-btn:is(:hover, :focus, :active) {
+  background-color: var(--sec-color);
+  color: var(--color-white);
+  transform: scale(1.05);
+}
+.nfx-updateMovie-btn:is(:hover, :focus, :active) {
+  background-color: var(--sec-color);
+  color: var(--color-white);
+  transform: scale(1.05);
+}
+
+.nfx-close-btn:is(:hover, :focus, :active) {
+  background-color: var(--primary-hover-color);
+  color: var(--color-white);
+  transform: scale(1.05);
+}
+.movieModel h2 {
+  color: var(--sec-color);
+  font-size: 25px;
+}
+.movieCard {
+  background-color: rgba(0, 0, 0, 0.7);
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+.movieCard h2 {
+  margin: 0;
+  height: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 20px;
+}
+.movieCard figure {
+  height: 250px;
+  overflow: hidden;
+  margin: 0;
+  position: relative;
+}
+.movieCard figure img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 8px;
+}
+figcaption {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  top: 30%;
+  height: 70%;
+  padding: 20px;
+  transform: translateY(120%);
+  opacity: 0;
+  transition: all 0.4s ease-in-out;
+  overflow-y: auto;
+}
+.movieCard:is(:hover, :focus, :active) figcaption {
+  transform: translateY(0);
+  opacity: 1;
+}
+.card h3 {
+  font-size: 15px;
+}
+.movieModel {
+  position: fixed;
+
+  width: 60%;
+  margin: 0 auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  display: none;
+  max-height: 80vh;
+  overflow-y: auto;
+  z-index: 10;
+}
+
+.backDrop {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: none;
+  z-index: 5;
+}
+.movieModel.active,
+.backDrop.active {
+  display: block;
+}
+
+.movieModel.active {
+  animation: slideDown 0.4s ease-in-out;
+}
+.backDrop.active {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.movieModel {
+  position: fixed;
+  width: 60%;
+  margin: 0 auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  display: none;
+  max-height: 80vh;
+  overflow-y: auto;
+  z-index: 10;
+}
+
+.movieModel.active,
+.backDrop.active {
+  display: block;
+}
+
+.movieModel.active {
+  animation: slideDown 0.4s ease-in-out;
+}
+
+.backDrop.active {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes slideDown {
+  0% {
+    transform: translate(-50%, -60%);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.closeModel {
+  cursor: pointer;
+}

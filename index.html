@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movies App</title>
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous" />
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <link rel="stylesheet" href="./assets/css/style.css" />
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-6 mt-4">
+                <a href="index.html" class="logo">
+                    <img src="./assets/images/logo.svg" alt="logo" />
+                </a>
+            </div>
+            <div class="col-6 mt-4 d-flex justify-content-end align-items-start">
+                <button class="btn btn-sm showModelbtn" id="showModelbtn">Add Movie</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid mt-5">
+        <div class="row" id="movieContainer">
+
+
+        </div>
+    </div>
+
+    <div class="backDrop closeModel" id="backDrop"></div>
+
+    <div class="movieModel" id="movieModel">
+        <form id="movieForm">
+            <div class="card">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h2>Add Movie Details</h2>
+                    <i class="fa-solid fa-xmark fa-2x closeModel"></i>
+                </div>
+                <div class="card-body m-0">
+                    <div class="form-group d-flex">
+                        <label for="movieTitle" class="w-50">Movie Title</label>
+                        <input type="text" id="movieTitle" name="movieTitle" class="form-control"
+                            placeholder="Enter movie title" required />
+                    </div>
+                    <div class="form-group d-flex">
+                        <label for="movieImgurl" class="w-50">Movie Image URL</label>
+                        <input type="text" id="movieImgurl" name="movieImgurl" class="form-control"
+                            placeholder="Enter image URL" required />
+                    </div>
+                    <div class="form-group d-flex">
+                        <label for="movieDescription" class="w-50">Movie Description</label>
+                        <textarea id="movieDescription" name="movieDescription" class="form-control" rows="4"
+                            placeholder="Enter movie description" required></textarea>
+                    </div>
+                    <div class="form-group d-flex">
+                        <label for="movieRating" class="w-50">Movie Rating</label>
+                        <select id="movieRating" name="movieRating" class="form-control" required>
+                            <option value="" disabled selected>Select Rating</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="card-footer d-flex justify-content-between">
+                    <button type="submit" class="btn nfx-addMovie-btn" id="addMovieBtn">Add Movie</button>
+                    <button type="button" class="btn nfx-updateMovie-btn closeModel d-none" id="updateMovieBtn">
+                        Update Movie
+                    </button>
+                    <button type="button" class="btn btn-sm btn-danger nfx-close-btn closeModel" id="closeMovieBtn">
+                        Close
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+    <div class="loader d-none" id="loader">
+        <div class="spinner-border text-primary" role="status"></div>
+        <p>Loading...</p>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+    <script src="./assets/js/app.js"></script>
+</body>
+
+</html>
